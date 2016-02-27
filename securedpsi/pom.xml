@@ -263,7 +263,7 @@
         <profile>
             <id>openshift</id>
             <build>
-                <finalName>flosolapp</finalName>
+                <finalName>securedpsi</finalName>
                 <plugins>
                     <plugin>
                         <artifactId>maven-war-plugin</artifactId>

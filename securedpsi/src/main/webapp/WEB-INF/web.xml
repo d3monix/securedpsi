@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app 
+	version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	metadata-complete="false">
+
+	<display-name>BILLPOCKET APP</display-name>
+	<description>-= BILLPOCKET APP =-</description>
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+<!-- 	<context-param> -->
+<!-- 		<param-name>contextConfigLocation</param-name> -->
+<!-- 		<param-value>/WEB-INF/spring/root-context.xml</param-value> -->
+<!-- 	</context-param> -->
+	
+	<context-param>
+		<param-name>org.eclipse.rap.applicationConfiguration</param-name>
+		<param-value>mx.vams.securedpsi.main.SecuredPsiApplicationConfiguration</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+<!-- 	<listener> -->
+<!-- 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
+<!-- 	</listener> -->
+	
+<!--   	<servlet> -->
+<!--     	<servlet-name>flosol</servlet-name> -->
+<!--     	<servlet-class> -->
+<!--         	org.springframework.web.servlet.DispatcherServlet -->
+<!--     	</servlet-class> -->
+<!--     	<init-param> -->
+<!--       		<param-name>contextConfigLocation</param-name> -->
+<!--       		<param-value>/WEB-INF/spring/servlets/servlet-context.xml</param-value> -->
+<!--     	</init-param> -->
+<!--     	<load-on-startup>1</load-on-startup> -->
+<!--   	</servlet> -->
+  	
+  	<!-- RWT servlet context listener -->
+	<listener>
+		<listener-class>org.eclipse.rap.rwt.engine.RWTServletContextListener</listener-class>
+	</listener>
+	
+	<!-- RWT servlet -->
+	<servlet>
+		<servlet-name>rwtServlet</servlet-name>
+		<servlet-class>org.eclipse.rap.rwt.engine.RWTServlet</servlet-class>
+	</servlet>
+	
+	<!-- RWT servlet mapping-->
+	<servlet-mapping>
+		<servlet-name>rwtServlet</servlet-name>
+		<url-pattern>/app</url-pattern>
+	</servlet-mapping>
+</web-app>

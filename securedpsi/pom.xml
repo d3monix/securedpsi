@@ -1,0 +1,260 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>mx.vams</groupId>
+	<artifactId>securedpsi</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-RELEASE</version>
+	<name>securedpsi Maven Webapp</name>
+
+	<!-- Properties -->
+	<properties>
+		<!-- PLUGINS [R] -->
+		<jetty-maven-plugin-version>8.1.16.v20140903</jetty-maven-plugin-version>
+		<maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
+
+		<!-- TESTING [R] -->
+		<junit-version>4.12</junit-version>
+		<opencsv-version>2.3</opencsv-version>
+
+		<!-- BOUNCY CASTLE -->
+		<bcprov-jdk15on-version>1.54</bcprov-jdk15on-version>
+
+		<!-- LOGGING [R] -->
+		<commons-logging-version>1.2</commons-logging-version>
+		<slf4j-version>1.7.16</slf4j-version>
+		<log4j-version>1.2.17</log4j-version>
+
+		<!-- DB [R] -->
+		<mysql-connector-version>5.1.38</mysql-connector-version>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
+		<commons-pool-version>1.6</commons-pool-version>
+		<mybatis-version>3.3.0</mybatis-version>
+		<mybatis-spring-version>1.2.4</mybatis-spring-version>
+
+		<!-- SPRING [R] -->
+		<springframework-version>4.2.4.RELEASE</springframework-version>
+		<springframework-security-version>4.0.3.RELEASE</springframework-security-version>
+
+		<!-- APACHE COMMONS [R] -->
+		<commons-io-version>2.4</commons-io-version>
+		<commons-lang3-version>3.4</commons-lang3-version>
+		<commons-codec-version>1.10</commons-codec-version>
+		<commons-httpclient-version>4.5.1</commons-httpclient-version>
+
+		<!-- JACKSON [R] -->
+		<jackson-core-version>2.6.5</jackson-core-version>
+		<jackson-databind-version>2.6.5</jackson-databind-version>
+		<jackson-annotations-version>2.6.5</jackson-annotations-version>
+
+		<!-- GOOGLE COMMONS [R] -->
+		<guava-collections>19.0</guava-collections>
+		<gson-version>2.6.1</gson-version>
+
+		<!-- =========================================================================== -->
+		<!-- JAVA -->
+		<java-version>1.7</java-version>
+
+		<!-- ENCODING [R] -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<!-- =========================================================================== -->
+
+		<!-- NEW -->
+		<sqlite-jdbc-version>3.7.15-M1</sqlite-jdbc-version>
+		<log4j.configuration>log4j.properties</log4j.configuration>
+	</properties>
+
+	<url>http://maven.apache.org</url>
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.eclipse.core</groupId>
+			<artifactId>commands</artifactId>
+			<version>3.3.0-I20070605-0010</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rap</groupId>
+			<artifactId>org.eclipse.rap.jface</artifactId>
+			<version>3.1.0-M5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rap</groupId>
+			<artifactId>org.eclipse.rap.rwt</artifactId>
+			<version>3.1.0-M5</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
+	
+		<dependency><!-- SPRING -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+ 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+ 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+ 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework-version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency><!-- SPRING SECURITY -->
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${springframework-security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springframework-security-version}</version>
+		</dependency>
+		
+		<dependency><!-- DB -->
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>${commons-pool-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-version}</version>
+		</dependency>
+		
+		<dependency><!-- LOGGING -->
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency><!-- TESTING -->
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit-version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>securedpsi</finalName>
+		<plugins>
+			<plugin><!-- JETTY (plugin) -->
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty-maven-plugin-version}</version>
+				<configuration>
+					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/</contextPath>
+					</webApp>
+				</configuration>
+			</plugin>
+			<plugin><!-- MAVEN COMPILER (plugin) -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin-version}</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
